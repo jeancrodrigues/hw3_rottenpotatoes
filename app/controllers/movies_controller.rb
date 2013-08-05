@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.create!(params[:movie])
-    flash[:notice] = "#{@movie.title} was successfully created."
+    flash[:notice]="#{@movie.title} was successfully created."
     redirect_to movies_path
   end
 
@@ -56,5 +56,9 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
+  
+  def search_tmdb
+    flash[:warning]="'#{params[:search_terms]}' was not found in TMDb."
+    redirect_to movies_path
+  end
 end
