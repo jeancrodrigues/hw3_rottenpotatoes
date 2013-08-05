@@ -31,7 +31,7 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I should not see "Chocolat"
 
 Scenario: no ratings selected
-  When I uncheck the following ratings: G, R, PG-13, PG
 
 Scenario: all ratings selected
-  # see assignment
+  When I check the following ratings: G, R, PG-13, PG
+  Then I should see all of the movies
